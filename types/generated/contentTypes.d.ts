@@ -519,6 +519,7 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
     singularName: 'collection';
     pluralName: 'collections';
     displayName: 'Collections';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -528,7 +529,8 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
     Handle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    Image: Schema.Attribute.Media<'images'>;
+    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Description: Schema.Attribute.Text & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
