@@ -26,6 +26,29 @@ export interface HomepageCta extends Struct.ComponentSchema {
   };
 }
 
+export interface FaqFaq extends Struct.ComponentSchema {
+  collectionName: 'components_faq_faqs';
+  info: {
+    displayName: 'FAQ';
+  };
+  attributes: {
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Question: Schema.Attribute.Component<'faq.faq-question', true>;
+  };
+}
+
+export interface FaqFaqQuestion extends Struct.ComponentSchema {
+  collectionName: 'components_faq_faq_questions';
+  info: {
+    displayName: 'FaqQuestion';
+  };
+  attributes: {
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Text: Schema.Attribute.Text & Schema.Attribute.Required;
+    Bookmark: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ColorImageColorImage extends Struct.ComponentSchema {
   collectionName: 'components_color_image_color_images';
   info: {
@@ -34,6 +57,17 @@ export interface ColorImageColorImage extends Struct.ComponentSchema {
   };
   attributes: {
     Image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface ColorHexColorHex extends Struct.ComponentSchema {
+  collectionName: 'components_color_hex_color_hexes';
+  info: {
+    displayName: 'ColorHex';
+    icon: 'brush';
+  };
+  attributes: {
+    Color: Schema.Attribute.String;
   };
 }
 
@@ -86,28 +120,19 @@ export interface AboutUsContentSection extends Struct.ComponentSchema {
   };
 }
 
-export interface ColorHexColorHex extends Struct.ComponentSchema {
-  collectionName: 'components_color_hex_color_hexes';
-  info: {
-    displayName: 'ColorHex';
-    icon: 'brush';
-  };
-  attributes: {
-    Color: Schema.Attribute.String;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'homepage.hero-banner': HomepageHeroBanner;
       'homepage.cta': HomepageCta;
+      'faq.faq': FaqFaq;
+      'faq.faq-question': FaqFaqQuestion;
       'color-image.color-image': ColorImageColorImage;
+      'color-hex.color-hex': ColorHexColorHex;
       'about-us.why-us': AboutUsWhyUs;
       'about-us.tile': AboutUsTile;
       'about-us.numerical-content': AboutUsNumericalContent;
       'about-us.content-section': AboutUsContentSection;
-      'color-hex.color-hex': ColorHexColorHex;
     }
   }
 }
