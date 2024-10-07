@@ -30,10 +30,12 @@ export interface FaqFaq extends Struct.ComponentSchema {
   collectionName: 'components_faq_faqs';
   info: {
     displayName: 'FAQ';
+    description: '';
   };
   attributes: {
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     Question: Schema.Attribute.Component<'faq.faq-question', true>;
+    Bookmark: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -41,11 +43,11 @@ export interface FaqFaqQuestion extends Struct.ComponentSchema {
   collectionName: 'components_faq_faq_questions';
   info: {
     displayName: 'FaqQuestion';
+    description: '';
   };
   attributes: {
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     Text: Schema.Attribute.Text & Schema.Attribute.Required;
-    Bookmark: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

@@ -587,6 +587,7 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
     singularName: 'faq';
     pluralName: 'faqs';
     displayName: 'FAQ';
+    description: '';
   };
   options: {
     draftAndPublish: true;
