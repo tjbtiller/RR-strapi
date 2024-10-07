@@ -37,17 +37,6 @@ export interface ColorImageColorImage extends Struct.ComponentSchema {
   };
 }
 
-export interface ColorHexColorHex extends Struct.ComponentSchema {
-  collectionName: 'components_color_hex_color_hexes';
-  info: {
-    displayName: 'ColorHex';
-    icon: 'brush';
-  };
-  attributes: {
-    Color: Schema.Attribute.String;
-  };
-}
-
 export interface AboutUsWhyUs extends Struct.ComponentSchema {
   collectionName: 'components_about_us_whyuses';
   info: {
@@ -97,17 +86,28 @@ export interface AboutUsContentSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ColorHexColorHex extends Struct.ComponentSchema {
+  collectionName: 'components_color_hex_color_hexes';
+  info: {
+    displayName: 'ColorHex';
+    icon: 'brush';
+  };
+  attributes: {
+    Color: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'homepage.hero-banner': HomepageHeroBanner;
       'homepage.cta': HomepageCta;
       'color-image.color-image': ColorImageColorImage;
-      'color-hex.color-hex': ColorHexColorHex;
       'about-us.why-us': AboutUsWhyUs;
       'about-us.tile': AboutUsTile;
       'about-us.numerical-content': AboutUsNumericalContent;
       'about-us.content-section': AboutUsContentSection;
+      'color-hex.color-hex': ColorHexColorHex;
     }
   }
 }

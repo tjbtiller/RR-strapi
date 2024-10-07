@@ -497,7 +497,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Banner: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
     OurStory: Schema.Attribute.Component<'about-us.content-section', false>;
     WhyUs: Schema.Attribute.Component<'about-us.why-us', false>;
     OurCraftsmanship: Schema.Attribute.Component<
