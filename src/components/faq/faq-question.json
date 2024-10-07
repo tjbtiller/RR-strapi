@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_faq_faq_questions",
+  "info": {
+    "displayName": "FaqQuestion"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Text": {
+      "type": "text",
+      "required": true
+    },
+    "Bookmark": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
