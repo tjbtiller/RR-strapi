@@ -485,6 +485,41 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'about-uses';
+    displayName: 'About Us';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Banner: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    OurStory: Schema.Attribute.Component<'about-us.content-section', false>;
+    WhyUs: Schema.Attribute.Component<'about-us.why-us', false>;
+    OurCraftsmanship: Schema.Attribute.Component<
+      'about-us.content-section',
+      false
+    >;
+    Numbers: Schema.Attribute.Component<'about-us.numerical-content', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    >;
+  };
+}
+
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
@@ -982,6 +1017,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
       'api::collection.collection': ApiCollectionCollection;
       'api::homepage.homepage': ApiHomepageHomepage;
